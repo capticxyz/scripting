@@ -2,6 +2,11 @@ let mediaRecorder: MediaRecorder | null = null;
 let isRecording = false;
 let chunks: Blob[] = [];
 
+/**
+ * Initializes the MediaRecorder object
+ * should be called before starting to record
+ * @returns {Promise<void>}
+ */
 export const initRecorder = async () => {
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -15,6 +20,10 @@ export const initRecorder = async () => {
 };
 
 export const onRecordingFinish = () => {
+  if (!chunks.length) {
+    return;
+  }
+
   const mp3 = new Blob(chunks, { type: 'audio/mp3' });
   chunks = [];
   // transcribe audio like
@@ -24,9 +33,18 @@ export const onRecordingFinish = () => {
   // });
 };
 
+/**
+ * Starts recording audio
+ * Is currently being called by a button click
+ * @returns {void}
+ */
 export const startRecording = () => {
   if (!mediaRecorder) {
     throw new Error('MediaRecorder not initialized');
+  }
+
+  if (isRecording) {
+    throw new Error('MediaRecorder is already recording');
   }
 
   isRecording = true;
@@ -38,6 +56,10 @@ export const startRecording = () => {
   mediaRecorder.onstop = onRecordingFinish;
 };
 
+/**
+ * Stops recording audio
+ * Is currently being called by a button click (if recording is in progress)
+ */
 export const stopRecording = () => {
   if (!mediaRecorder) {
     throw new Error('MediaRecorder not initialized');
