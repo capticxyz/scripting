@@ -11,6 +11,11 @@ class SimpleCubeAnimationWithState extends CapElement {
 
   increment = () => {
     this.state.count = this.state.count + 1;
+
+    // set the x coordinate of the box to the current count
+    const box = this.el.querySelector('#box');
+    box.setAttribute('position', { x: this.state.count, y: 1.6, z: 5 });
+
     this.requestUpdate();
   };
 
