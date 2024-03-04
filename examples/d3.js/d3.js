@@ -224,10 +224,8 @@ class D3Element extends CapElement {
         let m3Bar = new THREE.LineBasicMaterial({ color: 'gray' })
         let grid3Bar = new THREE.LineSegments(g3Bar, m3Bar)
         entity3DBar.object3D.add(grid3Bar)
-        console.error(iris)
 
         for (const [i, x] of iris.entries()) {
-            console.error(x)
             const sphere = document.createElement('a-entity')
             sphere.setAttribute('position', {
                 x: x['sepalLength'] - 4,
