@@ -41,7 +41,6 @@ class GltfValidator extends CapElement {
     handleChange = (event) => {
         this.selectedValue = event.target.value
         console.log('Selected value:', this.selectedValue)
-        //  this.el.sceneEl.removeAttribute('environment-map')
         this.el.sceneEl.setAttribute('environment-map', {
             textureSrc: event.target.value,
             environmentSky: true,
