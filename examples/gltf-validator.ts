@@ -1,3 +1,5 @@
+// https://vrland.io/MzTNX7/captic-local-viewer
+
 class GltfValidator extends CapElement {
     @property()
     dataJson: Array = []
