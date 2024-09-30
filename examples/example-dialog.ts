@@ -1,6 +1,6 @@
 class SampleElement extends CapElement {
     @query('dialog')
-    dialogElement
+    dialogElement!: HTMLDialogElement
 
     #showInfo = () => {
         this.dialogElement.showModal()
