@@ -2,12 +2,10 @@ interface QuizQuestion {
     question: string
     options: string[]
     answer: string
+    icon: string
 }
 
 export default class QuizElement extends CapElement {
-    @query('#answer4')
-    answer4: HTMLElement
-
     @property()
     currentQuestion = 0
 
