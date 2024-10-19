@@ -8,7 +8,6 @@ class UixElement extends CapElement {
     init() {
         // this.el.sceneEl reference to A-Frame a-scene
         // this.el.sceneEl.renderer refers to the Three.js renderer
-        this.el.sceneEl.renderer.debug.checkShaderErrors = false
     }
 
     // Do something on every scene tick or frame.
