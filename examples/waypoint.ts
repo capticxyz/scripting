@@ -61,7 +61,7 @@ class WayPointElement extends CapElement {
                 id="dek"
                 @click="${() => console.info('Box clicked')}"
             ></a-box>
-            <a-entity id="player-rig"></a-entity>
+           
         `
     }
 }
