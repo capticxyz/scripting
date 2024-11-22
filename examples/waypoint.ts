@@ -51,7 +51,7 @@ class WayPointElement extends CapElement {
     render(): TemplateResult {
         return html`
             <a-box
-                position="0 1 -3"
+                position="2 1 3"
                 rotation="45 45 0"
                 color="#4CC3D9"
                 width="2"
@@ -61,7 +61,6 @@ class WayPointElement extends CapElement {
                 id="dek"
                 @click="${() => console.info('Box clicked')}"
             ></a-box>
-           
         `
     }
 }
